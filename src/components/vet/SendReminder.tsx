@@ -1,5 +1,5 @@
-
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
@@ -14,7 +14,8 @@ import {
   MessageSquare,
   Calendar,
   Plus,
-  Send
+  Send,
+  ArrowLeft
 } from 'lucide-react';
 import { toast } from '../ui/use-toast';
 
@@ -29,6 +30,7 @@ interface Reminder {
 }
 
 export function SendReminder() {
+  const navigate = useNavigate();
   const [reminders, setReminders] = useState<Reminder[]>([
     {
       id: '1',
@@ -140,8 +142,12 @@ export function SendReminder() {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-6xl mx-auto">
-        <div className="flex justify-between items-center mb-6">
-          <div>
+        <div className="flex items-center gap-4 mb-6">
+          <Button variant="outline" onClick={() => navigate(-1)}>
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Back
+          </Button>
+          <div className="flex-1">
             <h1 className="text-3xl font-bold text-gray-900">Send Reminders</h1>
             <p className="text-gray-600">Send automated reminders to farmers about appointments and treatments</p>
           </div>

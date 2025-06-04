@@ -14,6 +14,8 @@ import { PatientHistory } from "./components/vet/PatientHistory";
 import { SendReminder } from "./components/vet/SendReminder";
 import { WritePrescription } from "./components/vet/WritePrescription";
 import { ConsultationDetails } from "./components/vet/ConsultationDetails";
+import { ManageUsers } from "./components/admin/ManageUsers";
+import { Analytics } from "./components/admin/Analytics";
 import NotFound from "./pages/NotFound";
 
 // Create a new QueryClient instance
@@ -42,7 +44,8 @@ const App = () => (
             <Route path="/vet/reminders" element={<SendReminder />} />
             <Route path="/vet/prescriptions" element={<WritePrescription />} />
             <Route path="/vet/consultation/:id" element={<ConsultationDetails />} />
-            {/* TODO: Add more routes for consultation management, admin panels */}
+            <Route path="/admin/users" element={<ManageUsers />} />
+            <Route path="/admin/analytics" element={<Analytics />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

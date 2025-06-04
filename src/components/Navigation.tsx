@@ -14,7 +14,8 @@ import {
   Bell,
   Menu,
   X,
-  LogOut
+  LogOut,
+  ArrowLeft
 } from 'lucide-react';
 
 export function Navigation() {
@@ -38,7 +39,10 @@ export function Navigation() {
     <nav className="bg-white shadow-sm border-b sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          <div className="flex items-center">
+          <div className="flex items-center space-x-4">
+            <Button variant="ghost" size="sm" onClick={() => navigate(-1)}>
+              <ArrowLeft className="h-4 w-4" />
+            </Button>
             <Link to="/" className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">L</span>
