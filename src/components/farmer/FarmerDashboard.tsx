@@ -12,7 +12,9 @@ import {
   Bell,
   Plus,
   Clock,
-  CheckCircle
+  CheckCircle,
+  CreditCard,
+  Star
 } from 'lucide-react';
 
 export function FarmerDashboard() {
@@ -179,7 +181,7 @@ export function FarmerDashboard() {
           <CardTitle>Quick Actions</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <Link to="/farmer/consultations/new">
               <Button variant="outline" className="w-full h-20 flex flex-col">
                 <Plus className="h-6 w-6 mb-2" />
@@ -198,6 +200,40 @@ export function FarmerDashboard() {
                 Find Veterinarians
               </Button>
             </Link>
+            <Link to="/subscription">
+              <Button variant="outline" className="w-full h-20 flex flex-col">
+                <Star className="h-6 w-6 mb-2" />
+                Upgrade Plan
+              </Button>
+            </Link>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Payment Actions */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Payment & Billing</CardTitle>
+          <CardDescription>Manage your payments and subscription</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Link to="/farmer/consultation/1/payment">
+              <Button variant="outline" className="w-full h-16 flex flex-col">
+                <CreditCard className="h-5 w-5 mb-1" />
+                <span className="text-sm">Pay for Consultation</span>
+              </Button>
+            </Link>
+            <Link to="/subscription">
+              <Button variant="outline" className="w-full h-16 flex flex-col">
+                <Star className="h-5 w-5 mb-1" />
+                <span className="text-sm">View Plans</span>
+              </Button>
+            </Link>
+            <Button variant="outline" className="w-full h-16 flex flex-col" onClick={() => alert('Payment history feature coming soon!')}>
+              <Calendar className="h-5 w-5 mb-1" />
+              <span className="text-sm">Payment History</span>
+            </Button>
           </div>
         </CardContent>
       </Card>
