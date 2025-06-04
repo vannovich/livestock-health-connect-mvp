@@ -8,6 +8,11 @@ import { AuthProvider } from "./contexts/AuthContext";
 import Index from "./pages/Index";
 import { HealthTips } from "./components/farmer/HealthTips";
 import { FindVeterinarians } from "./components/farmer/FindVeterinarians";
+import { VetSchedule } from "./components/vet/VetSchedule";
+import { PatientHistory } from "./components/vet/PatientHistory";
+import { SendReminder } from "./components/vet/SendReminder";
+import { WritePrescription } from "./components/vet/WritePrescription";
+import { ConsultationDetails } from "./components/vet/ConsultationDetails";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,7 +28,12 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/farmer/tips" element={<HealthTips />} />
             <Route path="/farmer/vets" element={<FindVeterinarians />} />
-            {/* TODO: Add more routes for consultation management, vet schedules, admin panels */}
+            <Route path="/vet/schedule" element={<VetSchedule />} />
+            <Route path="/vet/patients" element={<PatientHistory />} />
+            <Route path="/vet/reminders" element={<SendReminder />} />
+            <Route path="/vet/prescriptions" element={<WritePrescription />} />
+            <Route path="/vet/consultation/:id" element={<ConsultationDetails />} />
+            {/* TODO: Add more routes for consultation management, admin panels */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

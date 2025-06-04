@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
@@ -14,6 +15,7 @@ import {
 } from 'lucide-react';
 
 export function VetDashboard() {
+  const navigate = useNavigate();
   // TODO: Replace with real API calls for vet's consultations
   const [consultations] = useState(mockConsultations.filter(c => c.vetId === '2' || c.status === 'pending'));
 
@@ -32,10 +34,8 @@ export function VetDashboard() {
     alert('Consultation accepted! Patient will be notified.');
   };
 
-  const handleRespondToConsultation = (consultationId: string) => {
-    // TODO: Navigate to consultation detail/chat page
-    console.log('Responding to consultation:', consultationId);
-    alert('Opening consultation chat...');
+  const handleViewConsultation = (consultationId: string) => {
+    navigate(`/vet/consultation/${consultationId}`);
   };
 
   return (
@@ -45,7 +45,7 @@ export function VetDashboard() {
           <h1 className="text-3xl font-bold text-gray-900">Veterinarian Dashboard</h1>
           <p className="text-gray-600">Manage your consultations and help farmers</p>
         </div>
-        <Button variant="outline">
+        <Button variant="outline" onClick={() => navigate('/vet/schedule')}>
           <Calendar className="h-4 w-4 mr-2" />
           Manage Schedule
         </Button>
@@ -136,7 +136,7 @@ export function VetDashboard() {
                     <Button 
                       variant="outline" 
                       size="sm"
-                      onClick={() => handleRespondToConsultation(consultation.id)}
+                      onClick={() => handleViewConsultation(consultation.id)}
                     >
                       View Details
                     </Button>
@@ -176,7 +176,7 @@ export function VetDashboard() {
                   <div className="flex gap-2">
                     <Button 
                       size="sm"
-                      onClick={() => handleRespondToConsultation(consultation.id)}
+                      onClick={() => handleViewConsultation(consultation.id)}
                     >
                       Continue Chat
                     </Button>
@@ -201,19 +201,35 @@ export function VetDashboard() {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Button variant="outline" className="h-20 flex flex-col">
+            <Button 
+              variant="outline" 
+              className="h-20 flex flex-col"
+              onClick={() => navigate('/vet/schedule')}
+            >
               <Calendar className="h-6 w-6 mb-2" />
               Update Schedule
             </Button>
-            <Button variant="outline" className="h-20 flex flex-col">
+            <Button 
+              variant="outline" 
+              className="h-20 flex flex-col"
+              onClick={() => navigate('/vet/patients')}
+            >
               <Users className="h-6 w-6 mb-2" />
               Patient History
             </Button>
-            <Button variant="outline" className="h-20 flex flex-col">
+            <Button 
+              variant="outline" 
+              className="h-20 flex flex-col"
+              onClick={() => navigate('/vet/reminders')}
+            >
               <MessageSquare className="h-6 w-6 mb-2" />
               Send Reminder
             </Button>
-            <Button variant="outline" className="h-20 flex flex-col">
+            <Button 
+              variant="outline" 
+              className="h-20 flex flex-col"
+              onClick={() => navigate('/vet/prescriptions')}
+            >
               <CheckCircle className="h-6 w-6 mb-2" />
               Write Prescription
             </Button>
