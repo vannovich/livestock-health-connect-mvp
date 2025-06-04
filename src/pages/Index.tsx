@@ -1,12 +1,26 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useAuth } from '../contexts/AuthContext';
+import { LoginForm } from '../components/LoginForm';
+import { FarmerDashboard } from '../components/farmer/FarmerDashboard';
+import { VetDashboard } from '../components/vet/VetDashboard';
+import { AdminDashboard } from '../components/admin/AdminDashboard';
+import { Navigation } from '../components/Navigation';
 
 const Index = () => {
+  const { user, isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return <LoginForm />;
+  }
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-gray-50">
+      <Navigation />
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {user?.role === 'farmer' && <FarmerDashboard />}
+        {user?.role === 'veterinarian' && <VetDashboard />}
+        {user?.role === 'admin' && <AdminDashboard />}
+      </main>
     </div>
   );
 };
