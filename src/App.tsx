@@ -15,6 +15,9 @@ import { FindVeterinarians } from "./components/farmer/FindVeterinarians";
 import { ConsultationPayment } from "./components/farmer/ConsultationPayment";
 import { SubscriptionPlans } from "./components/farmer/SubscriptionPlans";
 import { FarmerDashboard } from "./components/farmer/FarmerDashboard";
+import { RequestConsultation } from "./components/farmer/RequestConsultation";
+import { MyConsultations } from "./components/farmer/MyConsultations";
+import { ConsultationChat } from "./components/farmer/ConsultationChat";
 import { VetSchedule } from "./components/vet/VetSchedule";
 import { VetDashboard } from "./components/vet/VetDashboard";
 import { PatientHistory } from "./components/vet/PatientHistory";
@@ -24,6 +27,7 @@ import { ConsultationDetails } from "./components/vet/ConsultationDetails";
 import { ManageUsers } from "./components/admin/ManageUsers";
 import { Analytics } from "./components/admin/Analytics";
 import { AdminDashboard } from "./components/admin/AdminDashboard";
+import { Contact } from "./components/Contact";
 import NotFound from "./pages/NotFound";
 import { LoginForm } from "./components/LoginForm";
 
@@ -59,8 +63,9 @@ const AppContent = () => {
           <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
           <Route path="/farmer/tips" element={<HealthTips />} />
           <Route path="/farmer/vets" element={<FindVeterinarians />} />
-          <Route path="/farmer/consultations" element={<NotFound />} />
-          <Route path="/farmer/consultations/new" element={<NotFound />} />
+          <Route path="/farmer/consultations" element={<MyConsultations />} />
+          <Route path="/farmer/consultations/new" element={<RequestConsultation />} />
+          <Route path="/farmer/consultation/:id" element={<ConsultationChat />} />
           <Route path="/farmer/consultation/:id/payment" element={<ConsultationPayment />} />
           <Route path="/subscription" element={<SubscriptionPlans />} />
           
@@ -82,7 +87,8 @@ const AppContent = () => {
           <Route path="/payment-success" element={<PaymentSuccess />} />
           <Route path="/payment-cancel" element={<PaymentCancel />} />
           
-          {/* Profile Route */}
+          {/* General Routes */}
+          <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<NotFound />} />
           
           {/* 404 Route */}

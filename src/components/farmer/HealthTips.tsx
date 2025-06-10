@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
@@ -8,12 +9,11 @@ import { mockHealthTips } from '../../data/mockData';
 
 export function HealthTips() {
   const navigate = useNavigate();
-  const [language, setLanguage] = useState<'en' | 'pidgin'>('en');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
-  // TODO: Replace with real API call
+  // TODO: Replace with real API call - only show English tips
   const tips = mockHealthTips.filter(tip => 
-    tip.language === language && 
+    tip.language === 'en' && 
     (selectedCategory === 'all' || tip.category === selectedCategory)
   );
 
@@ -29,33 +29,12 @@ export function HealthTips() {
           </Button>
           <div className="flex-1">
             <h1 className="text-3xl font-bold text-gray-900">Health Tips</h1>
-            <p className="text-gray-600">
-              {language === 'en' 
-                ? 'Learn how to keep your animals healthy' 
-                : 'Learn how to keep your animal dem healthy'
-              }
-            </p>
-          </div>
-          <div className="flex gap-2">
-            <Button 
-              variant={language === 'en' ? 'default' : 'outline'} 
-              onClick={() => setLanguage('en')}
-              size="sm"
-            >
-              English
-            </Button>
-            <Button 
-              variant={language === 'pidgin' ? 'default' : 'outline'} 
-              onClick={() => setLanguage('pidgin')}
-              size="sm"
-            >
-              Pidgin
-            </Button>
+            <p className="text-gray-600">Learn how to keep your animals healthy</p>
           </div>
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mb-6">
           {categories.map(category => (
             <Badge 
               key={category}
@@ -93,27 +72,17 @@ export function HealthTips() {
         {tips.length === 0 && (
           <Card>
             <CardContent className="text-center py-12">
-              <p className="text-gray-500">
-                {language === 'en' 
-                  ? 'No tips found for this category.' 
-                  : 'No tips dey for this category.'
-                }
-              </p>
+              <p className="text-gray-500">No tips found for this category.</p>
             </CardContent>
           </Card>
         )}
 
         {/* Emergency Contact */}
-        <Card className="bg-red-50 border-red-200">
+        <Card className="bg-red-50 border-red-200 mt-8">
           <CardContent className="p-6">
-            <h3 className="font-semibold text-red-800 mb-2">
-              {language === 'en' ? 'Emergency Contact' : 'Emergency Contact'}
-            </h3>
+            <h3 className="font-semibold text-red-800 mb-2">Emergency Contact</h3>
             <p className="text-red-700 mb-3">
-              {language === 'en' 
-                ? 'If your animal is in critical condition, contact emergency veterinary services immediately:'
-                : 'If your animal dey serious condition, call emergency vet service quick quick:'
-              }
+              If your animal is in critical condition, contact emergency veterinary services immediately:
             </p>
             <div className="flex flex-col sm:flex-row gap-2">
               <Button variant="destructive" size="sm">

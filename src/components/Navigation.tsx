@@ -22,15 +22,10 @@ export function Navigation() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [language, setLanguage] = useState<'en' | 'pidgin'>('en');
 
   const handleLogout = () => {
     logout();
     navigate('/');
-  };
-
-  const toggleLanguage = () => {
-    setLanguage(prev => prev === 'en' ? 'pidgin' : 'en');
   };
 
   if (!user) return null;
@@ -67,6 +62,9 @@ export function Navigation() {
                 <Link to="/farmer/tips" className="text-gray-700 hover:text-primary transition-colors">
                   Health Tips
                 </Link>
+                <Link to="/contact" className="text-gray-700 hover:text-primary transition-colors">
+                  Contact
+                </Link>
               </>
             )}
 
@@ -80,6 +78,9 @@ export function Navigation() {
                 </Link>
                 <Link to="/vet/schedule" className="text-gray-700 hover:text-primary transition-colors">
                   Schedule
+                </Link>
+                <Link to="/contact" className="text-gray-700 hover:text-primary transition-colors">
+                  Contact
                 </Link>
               </>
             )}
@@ -95,17 +96,11 @@ export function Navigation() {
                 <Link to="/admin/analytics" className="text-gray-700 hover:text-primary transition-colors">
                   Analytics
                 </Link>
+                <Link to="/contact" className="text-gray-700 hover:text-primary transition-colors">
+                  Contact
+                </Link>
               </>
             )}
-
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={toggleLanguage}
-              className="text-xs"
-            >
-              {language === 'en' ? 'Pidgin' : 'English'}
-            </Button>
 
             <Button variant="ghost" size="sm">
               <Bell className="h-4 w-4" />
@@ -169,17 +164,16 @@ export function Navigation() {
                   >
                     My Consultations
                   </Link>
+                  <Link 
+                    to="/contact" 
+                    className="text-gray-700 hover:text-primary py-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Contact
+                  </Link>
                 </>
               )}
               <div className="pt-2 border-t">
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  onClick={toggleLanguage}
-                  className="mr-2"
-                >
-                  {language === 'en' ? 'Pidgin' : 'English'}
-                </Button>
                 <Button variant="outline" size="sm" onClick={handleLogout}>
                   Logout
                 </Button>
