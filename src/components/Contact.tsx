@@ -168,8 +168,8 @@ export function Contact() {
                   <MapPin className="h-5 w-5 text-primary mt-1" />
                   <div>
                     <p className="font-medium">Address</p>
-                    <p className="text-gray-600">Yaoundé, Cameroon</p>
-                    <p className="text-sm text-gray-500">Central Region</p>
+                    <p className="text-gray-600">Buea, Southwest Region</p>
+                    <p className="text-sm text-gray-500">Cameroon</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
