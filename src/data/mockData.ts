@@ -1,4 +1,3 @@
-
 import { User, Consultation, HealthTip, Message, Veterinarian } from '../types';
 
 export const mockUsers: User[] = [

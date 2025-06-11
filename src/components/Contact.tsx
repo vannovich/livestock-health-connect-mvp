@@ -91,7 +91,7 @@ export function Contact() {
                         type="tel"
                         name="phone"
                         className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                        placeholder="+237 XXX XXX XXX"
+                        placeholder="+237 670 123 456"
                         value={formData.phone}
                         onChange={handleInputChange}
                       />
@@ -152,7 +152,7 @@ export function Contact() {
                   <Phone className="h-5 w-5 text-primary mt-1" />
                   <div>
                     <p className="font-medium">Phone</p>
-                    <p className="text-gray-600">+237 233 XX XXXX</p>
+                    <p className="text-gray-600">+237 233 456 789</p>
                     <p className="text-sm text-gray-500">Mon-Fri: 8AM-8PM</p>
                   </div>
                 </div>
@@ -193,7 +193,7 @@ export function Contact() {
                 </p>
                 <Button className="w-full bg-red-600 hover:bg-red-700">
                   <Phone className="h-4 w-4 mr-2" />
-                  Emergency: +237 666 XX XXXX
+                  Emergency: +237 666 123 789
                 </Button>
               </CardContent>
             </Card>

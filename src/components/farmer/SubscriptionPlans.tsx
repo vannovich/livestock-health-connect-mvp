@@ -15,7 +15,7 @@ export function SubscriptionPlans() {
     {
       id: 'basic',
       name: 'Basic',
-      price: 9.99,
+      price: 5000,
       period: 'month',
       description: 'Essential features for small farms',
       features: [
@@ -29,7 +29,7 @@ export function SubscriptionPlans() {
     {
       id: 'premium',
       name: 'Premium',
-      price: 24.99,
+      price: 12500,
       period: 'month',
       description: 'Advanced features for growing operations',
       features: [
@@ -45,7 +45,7 @@ export function SubscriptionPlans() {
     {
       id: 'enterprise',
       name: 'Enterprise',
-      price: 49.99,
+      price: 25000,
       period: 'month',
       description: 'Complete solution for large farms',
       features: [
@@ -104,7 +104,7 @@ export function SubscriptionPlans() {
                 <CardTitle className="text-2xl">{plan.name}</CardTitle>
                 <CardDescription>{plan.description}</CardDescription>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold">${plan.price}</span>
+                  <span className="text-4xl font-bold">XAF {plan.price.toLocaleString()}</span>
                   <span className="text-gray-600">/{plan.period}</span>
                 </div>
               </CardHeader>

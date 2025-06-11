@@ -153,7 +153,7 @@ export function ConsultationPayment() {
                   <input
                     type="tel"
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                    placeholder="+237 6XX XXX XXX"
+                    placeholder="+237 670 123 456"
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
                     required
