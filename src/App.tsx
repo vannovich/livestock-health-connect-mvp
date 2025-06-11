@@ -13,7 +13,6 @@ import PaymentCancel from "./pages/PaymentCancel";
 import { HealthTips } from "./components/farmer/HealthTips";
 import { FindVeterinarians } from "./components/farmer/FindVeterinarians";
 import { ConsultationPayment } from "./components/farmer/ConsultationPayment";
-import { SubscriptionPlans } from "./components/farmer/SubscriptionPlans";
 import { FarmerDashboard } from "./components/farmer/FarmerDashboard";
 import { RequestConsultation } from "./components/farmer/RequestConsultation";
 import { MyConsultations } from "./components/farmer/MyConsultations";
@@ -67,12 +66,10 @@ const AppContent = () => {
           <Route path="/farmer/consultations/new" element={<RequestConsultation />} />
           <Route path="/farmer/consultation/:id" element={<ConsultationChat />} />
           <Route path="/farmer/consultation/:id/payment" element={<ConsultationPayment />} />
-          <Route path="/subscription" element={<SubscriptionPlans />} />
           
           {/* Vet Routes */}
           <Route path="/vet/dashboard" element={<VetDashboard />} />
           <Route path="/vet/schedule" element={<VetSchedule />} />
-          <Route path="/vet/consultations" element={<NotFound />} />
           <Route path="/vet/patients" element={<PatientHistory />} />
           <Route path="/vet/reminders" element={<SendReminder />} />
           <Route path="/vet/prescriptions" element={<WritePrescription />} />
@@ -89,7 +86,6 @@ const AppContent = () => {
           
           {/* General Routes */}
           <Route path="/contact" element={<Contact />} />
-          <Route path="/profile" element={<NotFound />} />
           
           {/* 404 Route */}
           <Route path="*" element={<NotFound />} />

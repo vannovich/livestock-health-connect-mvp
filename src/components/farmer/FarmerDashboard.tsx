@@ -200,12 +200,10 @@ export function FarmerDashboard() {
                 Find Veterinarians
               </Button>
             </Link>
-            <Link to="/subscription">
-              <Button variant="outline" className="w-full h-20 flex flex-col">
-                <Star className="h-6 w-6 mb-2" />
-                Upgrade Plan
-              </Button>
-            </Link>
+            <Button variant="outline" className="w-full h-20 flex flex-col" onClick={() => alert('Subscription plans coming soon!')}>
+              <Star className="h-6 w-6 mb-2" />
+              Upgrade Plan
+            </Button>
           </div>
         </CardContent>
       </Card>
@@ -224,12 +222,10 @@ export function FarmerDashboard() {
                 <span className="text-sm">Pay for Consultation</span>
               </Button>
             </Link>
-            <Link to="/subscription">
-              <Button variant="outline" className="w-full h-16 flex flex-col">
-                <Star className="h-5 w-5 mb-1" />
-                <span className="text-sm">View Plans</span>
-              </Button>
-            </Link>
+            <Button variant="outline" className="w-full h-16 flex flex-col" onClick={() => alert('Subscription plans coming soon!')}>
+              <Star className="h-5 w-5 mb-1" />
+              <span className="text-sm">View Plans</span>
+            </Button>
             <Button variant="outline" className="w-full h-16 flex flex-col" onClick={() => alert('Payment history feature coming soon!')}>
               <Calendar className="h-5 w-5 mb-1" />
               <span className="text-sm">Payment History</span>

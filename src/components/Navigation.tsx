@@ -73,9 +73,9 @@ export function Navigation() {
                 <Link to="/vet/dashboard" className="text-gray-700 hover:text-primary transition-colors">
                   Dashboard
                 </Link>
-                <Link to="/vet/consultations" className="text-gray-700 hover:text-primary transition-colors">
+                <Button variant="ghost" onClick={() => alert('Consultations page coming soon!')}>
                   Consultations
-                </Link>
+                </Button>
                 <Link to="/vet/schedule" className="text-gray-700 hover:text-primary transition-colors">
                   Schedule
                 </Link>
@@ -115,7 +115,7 @@ export function Navigation() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="bg-white">
                 <DropdownMenuItem>
-                  <Link to="/profile" className="w-full">Profile</Link>
+                  <Button variant="ghost" onClick={() => alert('Profile page coming soon!')}>Profile</Button>
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={handleLogout}>
                   <LogOut className="h-4 w-4 mr-2" />
